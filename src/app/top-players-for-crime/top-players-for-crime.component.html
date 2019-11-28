@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Player Table</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Team Name</th>
+        <th>Team City</th>
+        <th>Team Position</th>
+        <th>Arrest Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let record of playerData | slice:0:5'>
+        <td>{{record.Name}}</td>
+        <td>{{record.Team}}</td>
+        <td>{{record.Team_name}}</td>
+        <td>{{record.Team_city}}</td>
+        <td>{{record.Position}}</td>
+        <td>{{record.arrest_count}}</td>
+      </tr>
+      <ng-container *ngIf="showMore">
+        <tr *ngFor='let record of playerData'>
+          <td>{{record.Name}}</td>
+          <td>{{record.Team}}</td>
+          <td>{{record.Team_name}}</td>
+          <td>{{record.Team_city}}</td>
+          <td>{{record.Position}}</td>
+          <td>{{record.arrest_count}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <button (click)="showMore = true">Show more</button>
+</div>

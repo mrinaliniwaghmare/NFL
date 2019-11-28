@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Team Table</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Team Preferred Name</th>
+        <th>Team Name</th>
+        <th>Team City</th>
+        <th>Team Conference</th>
+        <th>Team Conference Division</th>
+        <th>Team Logo Id</th>
+        <th>Arrest Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let record of teamData | slice:0:5'>
+        <td>{{record.Team}}</td>
+        <td>{{record.Team_preffered_name }}</td>
+        <td>{{record.Team_name}}</td>
+        <td>{{record.Team_city }}</td>
+        <td>{{record.Team_Conference }}</td>
+        <td>{{record.Team_Conference_Division }}</td>
+        <td>{{record.Team_logo_id }}</td>
+        <td>{{record.arrest_count }}</td>
+
+      </tr>
+      <ng-container *ngIf="showMore">
+        <tr *ngFor='let record of teamData'>
+          <td>{{record.Team}}</td>
+          <td>{{record.Team_preffered_name }}</td>
+          <td>{{record.Team_name}}</td>
+          <td>{{record.Team_city }}</td>
+          <td>{{record.Team_Conference }}</td>
+          <td>{{record.Team_Conference_Division }}</td>
+          <td>{{record.Team_logo_id }}</td>
+          <td>{{record.arrest_count }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<button (click)="showMore = true">Show more</button>
